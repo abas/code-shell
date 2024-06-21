@@ -5,9 +5,7 @@ import { exec } from 'child_process';
  * @param command 
  * @returns result of command
  */
-export async function ExecuteShell(
-    command: string
-): Promise<string> {
+export async function ExecuteShell(command: string): Promise<string> {
   return new Promise((resolve, reject) => {
     exec(command, (error, stdout, stderr) => {
       if (error) {
@@ -16,9 +14,9 @@ export async function ExecuteShell(
         return;
         }
       if (stderr) {
-          console.log(error)
-          reject(`stderr: ${stderr}`);
-          return;
+        console.log(error)
+        reject(`stderr: ${stderr}`);
+        return;
       }
       console.log(stdout)
       resolve(stdout);
